@@ -105,10 +105,11 @@ pairs.each { k, v ->
           if(it.getSuperClass().isOWLClass()) {
             unsats.contains(it.getSuperClass().getIRI().toString()) 
           }
-        }.getSuperClass().getIRI().toString()
+        }
 
         if(unsatParent){
           superSplains << "$k\t$u\t$unsatParent" 
+          unsatParent = unsatParent.getSuperClass().getIRI().toString()
           return false
         } else {
           return true 
